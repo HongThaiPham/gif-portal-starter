@@ -142,6 +142,7 @@ const App = () => {
   };
 
   const getGifList = useCallback(async () => {
+    console.log("getGifList", baseAccount);
     try {
       const provider = getProvider();
       const program = new Program(idl, programID, provider);
