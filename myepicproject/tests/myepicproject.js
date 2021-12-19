@@ -33,6 +33,18 @@ const main = async () => {
     }
   );
 
+  //Vote gif
+  tx = await program.rpc.updateItem(
+    "https://media.giphy.com/media/bzUwzbxcvJ3XQlcnoi/giphy.gif",
+    {
+      accounts: {
+        baseAccount: baseAccount.publicKey,
+        user: provider.wallet.publicKey,
+      },
+    }
+  );
+  console.log("📝 Your transaction signature", tx);
+
   // Call the account.
   account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log("👀 GIF Count", account.totalGifs.toString());

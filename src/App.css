@@ -69,7 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   bottom: 0;
   left: 0;
@@ -111,7 +111,7 @@
   object-fit: cover;
 }
 
-.connected-container input[type='text'] {
+.connected-container input[type="text"] {
   display: inline-block;
   color: white;
   padding: 10px;
@@ -127,4 +127,8 @@
 
 .connected-container button {
   height: 50px;
+}
+
+.text-white {
+  color: #fff;
 }

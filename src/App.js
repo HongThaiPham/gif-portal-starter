@@ -189,6 +189,26 @@ const App = () => {
     }
   };
 
+  const handleVote = async (item) => {
+    console.log(item.gifLink);
+    try {
+      const provider = getProvider();
+      const program = new Program(idl, programID, provider);
+
+      await program.rpc.updateItem(item.gifLink, {
+        accounts: {
+          baseAccount: baseAccount.publicKey,
+          user: provider.wallet.publicKey.toString(),
+        },
+      });
+      console.log("GIF successfully update", item.gifLink);
+
+      await getGifList();
+    } catch (error) {
+      console.log("Error sending GIF:", error);
+    }
+  };
+
   const renderConnectedContainer = () => {
     // If we hit this, it means the program account hasn't been initialized.
     if (gifList === null) {
@@ -228,6 +248,11 @@ const App = () => {
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
                 <img src={item.gifLink} alt="" />
+                <div className="text-white">{item.userAddress.toString()}</div>
+
+                <button onClick={() => handleVote(item)}>
+                  Vote {item.vote || 0}
+                </button>
               </div>
             ))}
           </div>

@@ -67,3 +67,5 @@ solana address -k target/deploy/myepicproject-keypair.json
 
 // Build again.
 anchor build
+
+anchor deploy
