@@ -127,7 +127,7 @@ const App = () => {
         accounts: {
           baseAccount: baseAccount.publicKey.toString(),
           user: provider.wallet.publicKey.toString(),
-          systemProgram: SystemProgram.programId,
+          systemProgram: SystemProgram.programId.toString(),
         },
         signers: [baseAccount],
       });
