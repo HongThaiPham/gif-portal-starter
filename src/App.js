@@ -145,7 +145,7 @@ const App = () => {
     console.log("getGifList", programID.toString());
     try {
       const provider = getProvider();
-      const program = new Program(idl, programID, provider);
+      const program = new Program(idl, programID.toString(), provider);
       const account = await program.account.baseAccount.fetch(
         baseAccount.publicKey.toString()
       );
