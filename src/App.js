@@ -173,11 +173,11 @@ const App = () => {
     console.log("Gif link:", inputValue);
     try {
       const provider = getProvider();
-      const program = new Program(idl, programID, provider);
+      const program = new Program(idl, programID.toString(), provider);
 
       await program.rpc.addGif(inputValue, {
         accounts: {
-          baseAccount: baseAccount.publicKey,
+          baseAccount: baseAccount.publicKey.toString(),
           user: provider.wallet.publicKey.toString(),
         },
       });
@@ -193,11 +193,11 @@ const App = () => {
     console.log(item.gifLink);
     try {
       const provider = getProvider();
-      const program = new Program(idl, programID, provider);
+      const program = new Program(idl, programID.toString(), provider);
 
       await program.rpc.updateItem(item.gifLink, {
         accounts: {
-          baseAccount: baseAccount.publicKey,
+          baseAccount: baseAccount.publicKey.toString(),
           user: provider.wallet.publicKey.toString(),
         },
       });
