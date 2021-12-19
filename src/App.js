@@ -4,15 +4,14 @@ import "./App.css";
 import idl from "./idl.json";
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 import { Program, Provider, web3 } from "@project-serum/anchor";
-// import kp from "./keypair.json";
+import kp from "./keypair.json";
 
 // SystemProgram is a reference to the Solana runtime!
 const { SystemProgram, Keypair } = web3;
 
-// const arr = Object.values(kp._keypair.secretKey);
-// const secret = new Uint8Array(arr);
-// const baseAccount = Keypair.fromSecretKey(secret);
-const baseAccount = Keypair.generate();
+const arr = Object.values(kp._keypair.secretKey);
+const secret = new Uint8Array(arr);
+const baseAccount = Keypair.fromSecretKey(secret);
 
 // Get our program's id from the IDL file.
 const programID = new PublicKey(idl.metadata.address);
