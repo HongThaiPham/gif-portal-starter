@@ -147,7 +147,7 @@ const App = () => {
       const provider = getProvider();
       const program = new Program(idl, programID, provider);
       const account = await program.account.baseAccount.fetch(
-        baseAccount.publicKey
+        baseAccount.publicKey.toString()
       );
 
       console.log("Got the account", account);
