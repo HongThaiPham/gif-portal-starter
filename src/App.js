@@ -14,7 +14,7 @@ const secret = new Uint8Array(arr);
 const baseAccount = Keypair.fromSecretKey(secret);
 
 // Get our program's id from the IDL file.
-const programID = new PublicKey(idl.metadata.address);
+const programID = new PublicKey(idl.metadata.address).toString();
 
 // Set our network to devnet.
 const network = clusterApiUrl("devnet");
@@ -142,10 +142,9 @@ const App = () => {
   };
 
   const getGifList = useCallback(async () => {
-    console.log("getGifList", programID.toString());
     try {
       const provider = getProvider();
-      const program = new Program(idl, programID.toString(), provider);
+      const program = new Program(idl, programID, provider);
       const account = await program.account.baseAccount.fetch(
         baseAccount.publicKey.toString()
       );
